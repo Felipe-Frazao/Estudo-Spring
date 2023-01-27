@@ -1,0 +1,1 @@
+alter table embalagens add entrada DATE;

@@ -20,6 +20,7 @@ public class Embalagem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     private Codigo codigo;
     private int quantidade;
     private Date entrada = new Date();

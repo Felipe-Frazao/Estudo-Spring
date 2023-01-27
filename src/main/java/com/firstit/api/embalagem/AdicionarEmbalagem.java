@@ -1,12 +1,13 @@
 package com.firstit.api.embalagem;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 public record AdicionarEmbalagem(
-        @NotBlank
+
+        @NotNull
         Codigo codigo,
-        @NotEmpty
+        @NotNull
         int quantidade
 ) {
 }
