@@ -1,9 +1,6 @@
 package com.firstit.api.controller;
 
-import com.firstit.api.embalagem.Embalagem;
-import com.firstit.api.embalagem.EmbalagemRepository;
-import com.firstit.api.embalagem.AdicionarEmbalagem;
-import com.firstit.api.embalagem.Exibindo;
+import com.firstit.api.embalagem.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +29,15 @@ public class EmbalagemController {
         return repository.findAll(paginacao).map(Exibindo::new);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        repository.deleteById(id);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizar dados){
+        Embalagem embalagem = repository.getReferenceById(dados.id());
+        embalagem.atualizarDados(dados);
+    }
 }

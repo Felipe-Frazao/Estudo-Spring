@@ -30,4 +30,7 @@ public class Embalagem {
         this.quantidade = embalagem.quantidade();
     }
 
+    public void atualizarDados(DadosAtualizar dados) {
+        this.quantidade = dados.quantidade();
+    }
 }
